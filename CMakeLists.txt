@@ -13,5 +13,16 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 # properly.  CMake 2.4 seems to have unpredictable scoping rules for such
 # variables.
 #list(APPEND CPACK_SOURCE_IGNORE_FILES /core/experimental)
+#g2o
+set(G2O_LIBRARIES 
+  g2o_core 
+  g2o_stuff
+  g2o_solver_cholmod 
+  g2o_solver_csparse 
+  g2o_types_slam3d
+  cholmod)
+
+target_link_libraries (
+  ${G2O_LIBRARIES})
 
 rosbuild_make_distribution(0.1.0)
